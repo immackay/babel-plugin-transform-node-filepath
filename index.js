@@ -9,7 +9,7 @@ module.exports = function ({ types: t }) {
           path.replaceWith(t.valueToNode(path.hub.file.opts.filename));
         }
         if (path.isReferencedIdentifier({ name: "__dirname" })) {
-          path.replaceWith(t.valueToNode(path.hub.file.path.parent.hub.file.opts.filename));
+          path.replaceWith(t.valueToNode(path.hub.file.opts.filename.replace(/\/(?:.(?!\/))+$/, '')));
         }
       },
     },
