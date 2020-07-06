@@ -6,10 +6,10 @@ module.exports = function ({ types: t }) {
     visitor: {
       Identifier(path) {
         if (path.isReferencedIdentifier({ name: "__filename" })) {
-          path.replaceWith(t.valueToNode(__filename));
+          path.replaceWith(t.valueToNode(path.hub.file.getModuleName()));
         }
         if (path.isReferencedIdentifier({ name: "__dirname" })) {
-          path.replaceWith(t.valueToNode(__dirname));
+          path.replaceWith(t.valueToNode(path.hub.file.opts.filename));
         }
       },
     },
