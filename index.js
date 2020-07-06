@@ -4,7 +4,7 @@ module.exports = function ({ types: t }) {
   return {
     name: "transform-node-filepath",
     visitor: {
-      MemberExpression(path) {
+      Identifier(path) {
         if (path.matchesPattern("__filename")) {
           path.replaceWith(t.valueToNode(__filename));
         }
