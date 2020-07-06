@@ -5,10 +5,10 @@ module.exports = function ({ types: t }) {
     name: "transform-node-filepath",
     visitor: {
       Identifier(path) {
-        if (path.matchesPattern("__filename")) {
+        if (path.isReferencedIdentifier({ name: "__filename" })) {
           path.replaceWith(t.valueToNode(__filename));
         }
-        if (path.matchesPattern("__dirname")) {
+        if (path.isReferencedIdentifier({ name: "__dirname" })) {
           path.replaceWith(t.valueToNode(__dirname));
         }
       },
