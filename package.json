@@ -2,7 +2,7 @@
   "name": "babel-plugin-transform-node-filepath",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "",
+  "description": "Transforms node globals __filename and __dirname into their respective values",
   "main": "index.js",
   "keywords": ["babel-plugin"],
   "author": "immackay",
